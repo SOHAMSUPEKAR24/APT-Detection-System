@@ -1,155 +1,49 @@
-# Automated Incident Response Orchestration
+# Real-time Intrusion Detection Web App
+<b>Project III</b><br>
+<b>Nguyễn Việt Hoàng - 20194434</b><br>
+## About
+* Real-time Intrusion Detection System implementing Machine Learning. 
 
-## Overview
+* We combine Supervised learning (RF) for detecting known attacks from CICIDS 2018 & SCVIC-APT datasets, and Unsupervised Learning (AE) for anomaly detection.
 
-Automated Incident Response Orchestration is a tool designed to automate incident response actions based on predefined playbooks to quickly mitigate cybersecurity threats. This tool integrates with various systems to isolate infected hosts, block malicious IPs, notify the security team, fetch threat intelligence, and generate incident reports.
+* System descriptive diagram:
+![image](https://github.com/HoangNV2001/Real-time-IDS/assets/72451372/78e0b74c-9db6-4bf5-8591-6d7aa8247b22)
 
-## Features
+## Requirements:
+1. Windows OS.
 
-- Automates incident response actions based on predefined playbooks.
-- Integrates with email, Slack, and threat intelligence platforms.
-- Provides CLI and web interfaces for managing incidents.
-- Generates detailed incident reports.
+2. Python 3.9:
+    * link 64-bit: https://www.python.org/ftp/python/3.9.13/python-3.9.13-amd64.exe 
+    * link 32-bit: https://www.python.org/ftp/python/3.9.13/python-3.9.13.exe
 
-## Project Structure
+     <b> Note: select "Add Python 3.9 to PATH" in installation procedure.</b>
 
-project_root/
-│
-├── playbooks/
-│   ├── malware_response.yml
-│   ├── phishing_response.yml
-│   └── unauthorized_access_response.yml
-│
-├── scripts/
-│   ├── isolate_host.py
-│   ├── block_ip.py
-│   ├── send_email.py
-│   ├── notify_slack.py
-│   ├── fetch_threat_intelligence.py
-│   ├── generate_report.py
-│   └── monitor_logs.py
-│
-├── config/
-│   ├── settings.yml
-│   └── playbook_mapping.yml
-│
-├── ui/
-│   ├── cli.py
-│   └── web.py
-│
-├── logs/
-│   └── incident_response.log
-│
-├── reports/
-│   └── report_template.html
-│
-├── main.py
-└── requirements.txt
+3. Npcap 1.71:
+    https://npcap.com/dist/npcap-1.71.exe
 
+## Download project folder & environment setups:
+<code>git clone https://github.com/HoangNV2001/APT_Detection
+    cd APT_Detection
+    # Create a virtual environment
+    python3.9 -m venv venv
+    # Activate that virtual environment
+    source venv/bin/activate
+    # Install the project requirements.
+    python -m pip install -r requirements.txt
+    # or: pip install -r requirements.txt</code>
 
+Run program:
 
-## Installation
+<code>python application.py</code>
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/incident-response-orchestration.git
-    cd incident-response-orchestration
+Web app address: [http://localhost:5000](http://localhost:5000)
 
-2. Create and activate a virtual environment (optional but recommended):
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+## Demo GUI
+* Main page, overview of real-time captured flows:
 
-3. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
+![image](https://github.com/HoangNV2001/Real-time-IDS/assets/72451372/90b42a1a-e2cb-4445-8036-4504e9c7c4ba)
 
+* Flow detail page:
 
-## Configuration
+![image](https://github.com/HoangNV2001/Real-time-IDS/assets/72451372/c6ce1c6b-a006-461e-8872-d889abd69d0d)
 
-1. Update the config/settings.yml file with your settings:
-    ```yaml
-    email_settings:
-    smtp_server: smtp.example.com
-    smtp_port: 587
-    username: your_username
-    password: your_password
-
-    network_settings:
-    firewall_api_url: http://firewall.example.com/api
-    firewall_api_key: your_api_key
-
-    slack_settings:
-    webhook_url: https://hooks.slack.com/services/your_webhook_url
-
-    threat_intelligence_settings:
-    api_url: http://threatintel.example.com/api
-    api_key: your_api_key
-
-2. Update the config/playbook_mapping.yml file with your incident types and corresponding playbooks:
-    ```yaml
-    incident_types:
-        malware:
-            playbook: malware_response.yml
-        phishing:
-            playbook: phishing_response.yml
-        unauthorized_access:
-            playbook: unauthorized_access_response.yml
-
-
-## Usage
-
-### CLI Interface
-
-1. Run the orchestration script from the CLI:
-    ```bash
-    python ui/cli.py run_playbook --incident-type malware --params param1 param2
-
-### Web Interface
-1. Start the Flask web server:
-    ```bash
-    FLASK_APP=ui/web.py flask run
-
-2. Use the web interface to trigger playbooks. Send a POST request to http://127.0.0.1:5000/run_playbook with the following JSON payload:
-    ```json
-    {
-        "incident_type": "malware",
-        "params": ["param1", "param2"]
-    }
-
-
-## Example Playbooks
-
-### playbooks/malware_response.yml
-1. YAML file :
-    ```yaml
-    - name: Malware Incident Response
-    hosts: localhost
-    tasks:
-        - name: Isolate infected host
-        script: isolate_host.py
-
-        - name: Block malicious IP
-        script: block_ip.py
-
-        - name: Fetch threat intelligence
-        script: fetch_threat_intelligence.py
-
-        - name: Notify security team
-        script: send_email.py
-
-        - name: Notify via Slack
-        script: notify_slack.py
-
-        - name: Generate incident report
-        script: generate_report.py
-
-
-## Contributing
-
-Contributions are welcome! Please create a pull request or open an issue to discuss your ideas or report bugs.
-
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.

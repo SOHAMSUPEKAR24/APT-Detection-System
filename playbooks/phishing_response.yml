@@ -1,0 +1,17 @@
+- name: Phishing Incident Response
+  hosts: localhost
+  tasks:
+    - name: Block phishing URL
+      script: block_ip.py
+
+    - name: Fetch threat intelligence
+      script: fetch_threat_intelligence.py
+
+    - name: Notify affected users
+      script: send_email.py
+
+    - name: Notify via Slack
+      script: notify_slack.py
+
+    - name: Generate incident report
+      script: generate_report.py

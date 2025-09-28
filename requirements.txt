@@ -1,0 +1,6 @@
+ansible
+requests
+pyyaml
+click
+Flask
+Jinja2

@@ -1,0 +1,16 @@
+email_settings:
+  smtp_server: smtp.example.com
+  smtp_port: 587
+  username: your_username
+  password: your_password
+
+network_settings:
+  firewall_api_url: http://firewall.example.com/api
+  firewall_api_key: your_api_key
+
+slack_settings:
+  webhook_url: https://hooks.slack.com/services/your_webhook_url
+
+threat_intelligence_settings:
+  api_url: http://threatintel.example.com/api
+  api_key: your_api_key

@@ -1,0 +1,7 @@
+incident_types:
+  malware:
+    playbook: malware_response.yml
+  phishing:
+    playbook: phishing_response.yml
+  unauthorized_access:
+    playbook: unauthorized_access_response.yml

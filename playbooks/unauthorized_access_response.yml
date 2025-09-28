@@ -1,0 +1,20 @@
+- name: Unauthorized Access Incident Response
+  hosts: localhost
+  tasks:
+    - name: Isolate compromised host
+      script: isolate_host.py
+
+    - name: Block unauthorized IP
+      script: block_ip.py
+
+    - name: Monitor logs for suspicious activity
+      script: monitor_logs.py
+
+    - name: Notify security team
+      script: send_email.py
+
+    - name: Notify via Slack
+      script: notify_slack.py
+
+    - name: Generate incident report
+      script: generate_report.py

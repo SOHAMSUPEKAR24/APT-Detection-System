@@ -1,0 +1,2 @@
+INFO:root:Executing playbook for malware with params ['param1', 'param2']
+ERROR:root:Error executing playbook: list indices must be integers or slices, not str
